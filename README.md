@@ -10,6 +10,10 @@ Yoon, E. J., Tessler, M. H., Goodman, N. D., & Frank, M. C. (2017). ["I won't li
 
 Yoon, E. J., Tessler, M. H., Goodman, N. D., & Frank, M. C. (2016). [Talking with tact: Politeness as a balance between informativity and kindness](http://stanford.edu/~mtessler/papers/YoonTessler2016-cogsci.pdf). In Proceedings of the 38th Annual Meeting of the Cognitive Science Society.
 
+### Archetypes
+
+Jeong, Sunwoo. 2017b. [Iconization of sociolinguistic variables: The case of archetypal female characters in classic Hollywood cinema](https://web.stanford.edu/~sunwooj/documents/jeong-2017-iconicity-preprint.pdf). In Dimensions of Iconicity. (eds.) Angelika Zirker, Matthias Bauer, Olga Fischer, and Christina Ljungberg. Amsterdam: John Benjamins Publishing Company. 263-286.
+
 
 ## Past lab meetings
 
@@ -36,7 +40,7 @@ Yoon, E. J., Tessler, M. H., Goodman, N. D., & Frank, M. C. (2016). [Talking wit
 
 - cross-linguistic politeness project: do cookies rating experiments from Yoon et al 2016/2017 with different groups of speakers (Japanese, German, Romanian) -- do inferred weights on social goal differ? Does ordering generalize to other tasks? --> quantification of potential cross-linguistic/cross-cultural differences in (at least one dimension of) politeness
 
-- Can we model Robert's and Katherine's "stereotypical character" speech datasets with RSA?
+- Can we model Robert's / Katherine's / Sunwoo's "stereotypical character" speech datasets with RSA?
 
 ## High-level issues
 

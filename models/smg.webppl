@@ -1,0 +1,82 @@
+// Basic RSA model
+
+// possible objects of reference
+var listenerPrior = function() {
+  categorical({vs:persona_values,ps:[0.01,0.01,0.01,0.97]})
+}
+//               [0.25,0.25,0.25,0.25]
+// [0.2,0.2,0.3,0.3]
+//               [0.05,0.05,0.45,0.45]
+var persona_values = ["sternLeader","coolGuy","idiot","asshole"]
+
+var personae = {
+    sternLeader:{competent: true, friendly: false}, // sternleader
+    coolGuy:{competent: true, friendly: true}, // coolguy
+    idiot:{competent: false, friendly: true}, // idiot
+    asshole:{competent: false, friendly: false}, // asshole
+    }
+
+var values = {
+    sternLeader:1.0, // sternleader
+    coolGuy:0.0, // coolguy
+    idiot:0.0, // idiot
+    asshole:0.0, // asshole
+}
+
+// var values = [1,0.5,0,0]
+
+// possible one-word utterances
+var utterances = ["in","ing"]
+
+// meaning function to interpret the utterances
+var meaning = function(utterance, persona){
+  utterance === "in" ? !personae[persona]["competent"] || personae[persona]["friendly"]  :
+  utterance === "ing" ? personae[persona]["competent"] || !personae[persona]["friendly"] :
+  false
+}
+
+// literal listener
+var literalListener = function(utterance){
+  Infer({model: function(){
+    var persona = listenerPrior();
+    condition(meaning(utterance, persona))
+    return persona
+  }})
+}
+
+// set speaker optimality
+var alpha = 4
+
+var cost = function(x){0}
+
+// pragmatic speaker
+var pragmaticSpeaker = function(){
+  Infer({model: function(){
+    var utterance = uniformDraw(utterances)
+    var persona = categorical({vs:persona_values,ps:[0.25,0.25,0.25,0.25]})
+    
+    var utility = (literalListener(utterance).score(persona) - cost(utterance)) 
+      + values[persona]
+
+    //categorical(vs:personae,ps:values)
+    factor(alpha * utility)
+    return [utterance,persona]
+  }})
+}
+
+// pragmatic listener
+var pragmaticListener = function(utterance){
+  Infer({model: function(){
+    var persona = listenerPrior()
+    factor(pragmaticSpeaker().score([utterance,persona]))
+    return persona
+  }})
+}
+
+
+print("literal listener's interpretation of 'in':")
+viz.table(literalListener( "in"))
+print("speaker's utterance distribution:")
+viz.table(pragmaticSpeaker())
+print("pragmatic listener's interpretation of 'in':")
+viz.table(pragmaticListener("in"))

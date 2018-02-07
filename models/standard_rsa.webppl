@@ -1,0 +1,56 @@
+// Basic RSA model
+
+// possible objects of reference
+var objectPrior = function() {
+  uniformDraw([
+    {shape: "square", color: "blue"},
+    {shape: "circle", color: "blue"},
+  ])
+}
+
+// possible one-word utterances
+var utterances = ["blue","square"]
+
+// meaning function to interpret the utterances
+var meaning = function(utterance, obj){
+  (utterance === "blue" || utterance === "green") ? utterance === obj.color :
+  (utterance === "circle" || utterance === "square") ? utterance === obj.shape :
+  true
+}
+
+// literal listener
+var literalListener = function(utterance){
+  Infer({model: function(){
+    var obj = objectPrior();
+    condition(meaning(utterance, obj))
+    return obj
+  }})
+}
+
+// set speaker optimality
+var alpha = 1
+
+// pragmatic speaker
+var speaker = function(obj){
+  Infer({model: function(){
+    var utterance = uniformDraw(utterances)
+    factor(alpha * literalListener(utterance).score(obj))
+    return utterance
+  }})
+}
+
+// pragmatic listener
+var pragmaticListener = function(utterance){
+  Infer({model: function(){
+    var obj = objectPrior()
+    observe(speaker(obj),utterance)
+    return obj
+  }})
+}
+
+print("literal listener's interpretation of 'blue':")
+viz.table(literalListener( "blue"))
+print("speaker's utterance distribution for a blue circle:")
+viz.table(speaker({shape:"circle", color: "blue"}))
+print("pragmatic listener's interpretation of 'blue':")
+viz.table(pragmaticListener("blue"))

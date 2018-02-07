@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Social meaning in game-theoretic pragmatics II</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Ciyang Qing" />
+    <meta name="date" content="2018-01-31" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: center, middle, title-slide
+
+## Social meaning in game-theoretic pragmatics
+### (Burnett in press)
+
+
+&lt;br /&gt;
+
+
+### Ciyang Qing
+
+
+&lt;img src="SUSig_Stack.png" height="80px" /&gt;
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;
+&lt;img src="alps1.jpg" height="80px" /&gt;
+
+### ALPS lab meeting (January 31, 2018)
+
+---
+# Previously...
+
+Vanilla RSA 
+
+- Literal listener: `\(L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}\)`
+
+- Speaker: `\(S_1(m \mid w) \propto \exp(\alpha \cdot U(m, w))\)`
+
+- Pragmatic listener: `\(L_2(w \mid m) \propto \Pr(w) \cdot S_1(m \mid w)\)`
+
+
+
+---
+# Social Meaning Games (SMGs)
+
+A **Social Meaning Game** is a tuple `\(\langle\{S,L\}, \langle\mathbb{P}, &gt;\rangle, M, C, [\cdot], \mu, \Pr \rangle\)`
+
+- S, L: Players
+
+- `\(\langle\mathbb{P}, &gt;\rangle\)`: Universe (a relational structure)
+
+  * `\(\mathbb{P}= \{p_1, \ldots, p_n\}\)` is  a finite set of properties
+  
+  * `\(&gt;\)` is a irreflexive relation on `\(\mathbb{P}\)` 
+  (an incompatibility relation)
+
+- `\(M\)` is a finite set of messages
+
+- `\(C\)` is a cost function of messages
+
+- `\([\cdot]\)` is the indexation relation
+
+- `\(\mu\)` is a **value function**: a measure function on sets of properties 
+
+- `\(\Pr\)` over sets of properties
+
+---
+# A working example: Obama
+
+`\(\mathbb{P}=\{\text{competent}, \text{incompetent}, \text{friendly}, \text{aloof}\}\)`
+- competent `\(&gt;\)` incompetent
+- friendly `\(&gt;\)` aloof
+
+A persona `\(w\)` is a maximally consistent set of properties.
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;background-color: lightpink;"&gt; Persona &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; doofus &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: lightpink;"&gt; w &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, friendly} &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: lightpink;"&gt; Pr &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+Prior: at the barbecue, Obama worries aoubt seeming aloof.
+
+- Really just a belief, the worry part comes later
+
+---
+# Literal listener
+Literal listener: `\(L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}\)`
+
+
+- Eckert indexical fields for (ING)
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variant &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Eckert.Field &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, aloof} &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -in' &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, friendly} &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Eckert indexical fields are interpreted disjunctively: Eckert-Montague fields
+
+`\([[m]] = \{w \mid w \cap \text{EF}(m) \neq \emptyset\}\)`
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;background-color: lightpink;"&gt; Persona &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; doofus &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: lightpink;"&gt; w &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, friendly} &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: lightpink;"&gt; Pr &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: lightpink;"&gt; EM.ing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: lightpink;"&gt; EM.in &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Literal listener
+Literal listener: `\(L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}\)`
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;background-color: lightpink;"&gt; Persona &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; doofus &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: lightpink;"&gt; w &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, friendly} &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: lightpink;"&gt; Pr &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: lightpink;"&gt; L0.ing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.375 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.250 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.375 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: lightpink;"&gt; L0.in &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.0000000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.2857143 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.4285714 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.2857143 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+# Speaker
+
+- RSA Speaker: `\(S_1(m \mid w) \propto \exp(\alpha \cdot U(m, w))\)`
+
+  * persona `\(w\)` as given
+
+- Burnett (in press): `\(S_1( \langle w, m\rangle ) \propto \exp(\alpha \cdot U(\langle w, m\rangle))\)`
+
+  * motivation performative nature of identity construction 
+
+- Now, `\(U(\langle w, m\rangle)) = \ln(L_0(w\mid m)) - C(m) + \mu(w)\)`
+
+  * `\(\mu\)` is the speaker's value function 
+  
+- Compared with Yoon, Tessler, Goodman &amp; Frank's (2016) politeness model
+
+  * `\(U(w, m) = \beta_1 \ln(L_0(w\mid m)) + \beta_2 \mathbb{E}_{L_0(w\mid m)}[\mu(w)] - C(m)\)`  
+
+Critical difference: whether there is a fact of the matter about `\(w\)`
+
+---
+# Obama, BBQ
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; w &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; doofus &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Obama, BBQ, speaker
+
+`\(U(\langle w, m\rangle)) = \ln(L_0(w\mid m)) - C(m) + \mu(w)\)`
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; w &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Value &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; m &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L0 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2500000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2857143 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3750000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3750000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4285714 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; doofus &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2857143 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Obama, BBQ, speaker
+
+`\(U(\langle w, m\rangle)) = \ln(L_0(w\mid m)) - C(m) + \mu(w)\)`
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; w &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Value &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; m &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L0 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Util &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.250 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.386 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.286 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.253 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.375 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.481 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.375 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.981 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.429 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.847 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; doofus &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.286 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.253 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Obama, BBQ, speaker
+
+`\(S_1( \langle w, m\rangle ) \propto \exp(\alpha \cdot U(\langle w, m\rangle))\)`
+
+Assume `\(\alpha=8\)`
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; w &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Value &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; m &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Util &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; S1 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.386 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.227 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.253 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.659 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.481 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.106 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.981 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.002 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.847 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.006 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; doofus &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.253 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Obama, Lawn, prior
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;background-color: lightpink;"&gt; Persona &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; doofus &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: lightpink;"&gt; w &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, friendly} &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: lightpink;"&gt; Pr &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.3 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Obama worries about seeming incompetent in front of hostile journalists 
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; w &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Value &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; m &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Util &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; S1 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.253 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.727 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.386 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.250 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.753 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.013 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.847 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.006 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.981 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.002 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; doofus &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.981 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.002 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Obama, DNC, different value function
+
+Same prior as at lawn
+
+Obama worries about seeming incompetent in front of hostile journalists 
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; w &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Value &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; m &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Util &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; S1 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.253 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.962 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.753 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.018 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.886 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.006 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.847 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.008 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.981 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.003 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; doofus &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.981 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.003 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Social stratification as variation in values
+
+Analyzing Labov (1966)
+
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; w &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mu.upperM &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mu.lowerM &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mu.working &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;"&gt; doofus &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+---
+# Social stratification as variation in values
+
+Analyzing Labov (1966)
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; w &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mu.upperM &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mu.lowerM &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mu.working &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L0.ing &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L0.in &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.33 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.33 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.33 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.33 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.33 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;"&gt; doofus &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.33 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Social stratification as variation in values
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; w &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; m &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; S1.upperM &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; S1.lowerM &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; S1.working &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.33 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.33 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.33 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.33 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.33 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; doofus &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.33 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Pragmatic listener
+
+- Vanilla RSA: `\(L_2(w \mid m) \propto \Pr(w) \cdot S_1(m \mid w)\)`
+
+The reason why Bayes' rule applies is that we can decompose the joint probability distribution for `\(w\)` and `\(m\)`
+ in two ways:
+ 
+- `\(P(w, m) = \Pr(m) \cdot L_2(w \mid m) = \Pr(w) \cdot S_1(m \mid w)\)`
+
+However, in SMGs the joint probability distribution for `\(w\)` and `\(m\)` is directly specified by `\(S_1\)` (for a given `\(\mu\)`).
+
+- In principle, it seems that the pragmatic listener could just do a simple conditioning upon hearing a message `\(m\)`, i.e., 
+  `\(L_2\)` simulates `\(S_1\)` sampling world-message pairs and only keeps those that have the actual message `\(m\)`
+
+ 
+ 
+---
+# Pragmatic listener
+
+Burnett's (in press) "Bayesian-style inference" rule `\(L_2(w \mid m) \propto \Pr(w) \cdot S_1(m, w)\)`
+
+- `\(L_2\)` independently samples `\(w\)` and simulates `\(S_1\)` sampling world-message pairs, and keep those pairs that match `\(L_2\)`'s private 
+ sample and the actual message
+
+
+- `\(L_2(w \mid m) \propto \Pr(w) \cdot S_1(\langle m, w\rangle \mid w)\)`
+
+Hidden independence assumption: `\(S_1(\langle m, w\rangle \mid w) \equiv S_1(\langle m, w\rangle)\)`, i.e., `\(L_2\)` believes that 
+ `\(S_1\)`'s behavior is indepedent of what `\(L_2\)` thinks about `\(S_1\)`
+
+(Discussion)
+
+
+---
+# Analyzing Podesva et al. (2015)
+
+Politicians want to be seen as stern leaders:
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; w &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; doofus &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Note that for convenience, I keep using (in)competent rather than (in)articulate and -ing/-in' variants rather than flapped/released /t/.
+The current presentation is isomorphic to the one in the original paper.
+
+---
+# Rice
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;font-weight: bold;background-color: lightpink;"&gt; Persona &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; doofus &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;"&gt; w &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, friendly} &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;"&gt; Pr &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.25 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; w &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; m &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; S1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L2 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.916 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.965 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.017 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.018 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.017 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.333 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.017 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.018 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.017 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.333 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; doofus &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.017 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.333 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Pelosi
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;font-weight: bold;background-color: lightpink;"&gt; Persona &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; doofus &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;"&gt; w &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, friendly} &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;"&gt; Pr &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.45 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.45 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; w &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; m &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; S1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L2 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.007 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.001 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.811 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.999 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.091 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.500 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; doofus &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.091 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.500 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Pelosi
+
+Problems with the production model:
+
+- The `\(\langle \text{asshole}, \text{-ing} \rangle\)` is much more likely chosen than `\(\langle \text{stern leader}, \text{-ing} \rangle\)`
+
+- Technically, this is because the informativity of the message outweighs the value function
+
+- Conceptually it seems very odd that Pelosi would choose the asshole persona with -ing because it does a better job
+ conveying it than the stern leader persona (discuss).
+
+
+Also, it seems wrong that the original paper's result would break the symmetry after hearing -in'
+
+---
+# Bush
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;font-weight: bold;background-color: lightpink;"&gt; Persona &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: skyblue;"&gt; doofus &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;"&gt; w &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, friendly} &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;"&gt; Pr &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.97 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.01 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; w &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; m &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; S1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L2 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; stern leader &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; cool guy &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {competent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; asshole &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, aloof} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightpink;vertical-align: middle !important;" rowspan="2"&gt; doofus &lt;/td&gt;
+   &lt;td style="text-align:left;vertical-align: middle !important;" rowspan="2"&gt; {incompetent, friendly} &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   
+   
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

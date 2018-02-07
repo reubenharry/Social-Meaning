@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Social meaning in game-theoretic pragmatics</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Ciyang Qing" />
+    <meta name="date" content="2018-01-24" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: center, middle, title-slide
+
+## Social meaning in game-theoretic pragmatics
+### (Burnett 2017)
+
+
+&lt;br /&gt;
+
+
+### Ciyang Qing
+
+
+&lt;img src="SUSig_Stack.png" height="80px" /&gt;
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;
+&lt;img src="alps1.jpg" height="80px" /&gt;
+
+### ALPS lab meeting (January 24, 2018)
+
+
+---
+# Vanilla RSA 
+
+
+- Literal listener: `\(L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}\)`
+
+- Speaker: `\(S_1(m \mid w) \propto \exp(\alpha \cdot U(m, w))\)`
+
+- Pragmatic listener: `\(L_2(w \mid m) \propto \Pr(w) \cdot S_1(m \mid w)\)`
+
+&lt;br /&gt;
+
+(Toy) RSA model for scalar implicature:  
+"Mary ate some of the cookies" `\(\rightsquigarrow\)` "Mary didn't eat all of the cookies" 
+
+- Suppose there are 3 cookies in total
+
+- Possible world `\(w_i\)`: Mary ate exactly `\(i\)` cookie(s) `\((0\leq i \leq 3)\)`
+
+- Uniform prior `\(\Pr(w)\)`
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w0 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w2 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w3 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Pr &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+# Vanilla RSA: literal listener
+
+Literal listener: `\(L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}\)`
+
+- Possible messages: NONE, ALL, SOME
+
+- Denotations
+
+  + `\([[\text{NONE}]] = \{w_0\}\)`
+
+  + `\([[\text{ALL}]] = \{w_3\}\)`
+  
+  + `\([[\text{SOME}]] = \{w_1, w_2, w_3\}\)`
+  
+- `\(\delta_{\phi} = 1\)` if `\(\phi\)` is true, `\(0\)` otherwise 
+  
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w0 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w2 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w3 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NONE &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ALL &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; SOME &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+# Vanilla RSA: literal listener
+
+Literal listener: `\(L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}\)`
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w0 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w2 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w3 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NONE &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ALL &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; SOME &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+`\(\propto\)`: multiplication by a normalizing constant
+
+- Each row is a probability distribution, i.e., should sum up to 1
+
+- To satisfy this, each cell is divided by the sum of its row
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w0 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w2 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w3 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NONE &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ALL &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; SOME &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.333 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Vanilla RSA: Speaker
+
+Speaker: `\(S_1(m \mid w) \propto \exp(\alpha \cdot U(m, w))\)`
+  
+- `\(\propto \exp(\alpha \cdot U)\)`: soft-max function/rule
+
+  + `\(\alpha\)` measures the degree to which the choice is maximizing the utility
+  
+  + `\(\alpha = +\infty\)`: only choose those options that maximize the utility
+  
+  + `\(\alpha = 0\)`: uniform choice
+  
+- Utilities are relative: adding a constant to `\(U\)` across the board does not change the result, because of `\(\propto\)`
+  
+- `\(U(m, w) = \ln(L_0(w \mid m)) - C(m)\)`
+
+  + `\(\ln(L_0(w \mid m))\)`: a measure of how close the induced listener's belief is to the speaker's own belief
+  
+  + `\(C(m)\)` cost of messages, assumed to be `\(0\)`
+
+
+---
+# Vanilla RSA: Speaker
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w0 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w2 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w3 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NONE &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ALL &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; SOME &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.333 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+`\(U(m, w) = \ln(L_0(w \mid m)) - C(m)\)`
+
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w0 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w2 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w3 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NONE &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ALL &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; SOME &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.099 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.099 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.099 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Note the typo in the original paper: it should be `\(\ln(.333)=\)`  -1.0996128 
+---
+# Vanilla RSA: Speaker
+
+Let `\(\alpha = 10\)`, `\(\exp(\alpha \cdot U(m, w))\)`
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w0 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w2 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w3 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NONE &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0e+00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0e+00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0e+00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ALL &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0e+00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0e+00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0e+00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; SOME &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.7e-05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.7e-05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.7e-05 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+`\(S_1(m \mid w) \propto \exp(\alpha \cdot U(m, w))\)`
+
+- Normalizing by column
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w0 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w2 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w3 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NONE &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ALL &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.999983 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; SOME &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000017 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+# Vanilla RSA: Pragmatic speaker
+
+Pragmatic listener: `\(L_2(w \mid m) \propto \Pr(w) \cdot S_1(m \mid w)\)`
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w0 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w2 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w3 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NONE &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ALL &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.249996 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; SOME &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000004 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+`\(\propto\)`: Normalizing by row
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w0 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w2 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; w3 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NONE &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0e+00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ALL &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1e+00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; SOME &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.499996 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.499996 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8e-06 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Social meaning
+
+- I am working on my paper (-ing)
+
+- I am workin' on my paper (-in')
+
+
+The -ing variant
+
+- educated, more articulate, gay (for one speaker)  (Campbell-Kibler 2006, 2007, 2008)
+
+- formality, non-physical masculinity/non-masculinity, pro-establishment 
+
+
+The -in' variant
+
+- redneck  (Campbell-Kibler 2006, 2007, 2008)
+
+- casualness, physical masculinity, anti-establishment (Kiesling 1998)
+
+
+Indexing relation (association)
+
+---
+# Empirical phenomena
+
+Burnett (2017, p254)
+
+- Listeners make judgments about the properties that characterize speakers based
+on the linguistic forms that they use
+
+- Social interpretation is crucially constrained by listener prior beliefs
+
+- Speakers strategically exploit listeners’ interpretation
+processes to communicate properties about themselves and, in doing so,
+construct their identities
+
+- Speakers are sensitive to what
+their interlocutors think about them, and that these expectations can influence
+which linguistic forms they use  (e.g., Gratton 2016)
+
+---
+# Gratton 2016
+
+Group interviews with non-binary individuals
+
+- Gender at birth: female (Flynn), male (Casey)
+
+- Place: queer-friendly, public coffee shop
+
+
+Use of -ing vs -in' variants
+
+- Queer-friendly: No significant difference (44% -ing for Flynn and 58% for Casey)
+
+- Public: 20% -ing for Flynn and 89% for Casey
+
+
+---
+# Gratton 2016
+
+Gratton (2016: 6): The individuals in this community believe that 
+
+- in queer environments
+  + they can be read as non-normative quite easily
+
+  + they do not need to consciously worry about their gender presentation. 
+  
+- in non-queer public contexts
+
+  + individuals whom they encounter in non-queer public spaces will pre-suppose a
+binary gender based mainly on their physiological characteristics. 
+
+  + In order to present a non-binary or non-normative gender identity, they must distance
+themselves from the gender which is presumed, i.e., their gender-assigned-at-birth 
+  
+  + by utilizing resources which resist the gender norms associated with their
+respective gender-assigned-at-birth
+
+---
+# Burnett's (2017) RSA model
+
+Literal listener: `\(L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}\)`
+
+- Two messages: -ing and -in'
+
+Worlds? `\([[\cdot]]\)`?
+
+- Assume relevant properties are `\(\{\)`competent, incompetent, casual, delicate, masculine, feminine `\(\}\)`
+
+- A world/persona is a maximal set of ideologically compatible properties
+
+
+```r
+personae &lt;- c("{competent, casual, masculine}", 
+              "{competent, casual, feminine}", 
+              "{competent, delicate, masculine}", 
+              "{competent, delicate, feminine}", 
+              "{incompetent, casual, masculine}", 
+              "{incompetent, casual, feminine}", 
+              "{incompetent, delicate, masculine}", 
+              "{incompetent, delicate, feminine}")
+```
+
+Design choice: which properties to choose? (Discussion later)
+
+---
+# Indexical fields
+
+Burnett (2017, p257): 
+
+"In Third Wave variation theory, individual variants have meaning that goes
+beyond their truth conditional meaning. In particular, variants index sets of
+properties/stances, called their **indexical field** (Eckert 2008)."
+
+
+- Eckert indexical fields for (ING)
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variant &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Eckert.Field &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate} &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual} &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+- Design choice: which properties to assign to Eckert indexical field? 
+Why not assign masculinity to -ing? (Discussion later)
+
+- Eckert indexical fields are interpreted **disjunctively**
+
+  + Derive `\([[m]]\)` based on `\(\text{EF}(m)\)`
+  
+  + `\([[m]] = \{w \mid w \cap \text{EF}(m) \neq \emptyset\}\)`
+
+
+---
+# Eckert-Montague fields
+
+`\([[m]] = \{w \mid w \cap \text{EF}(m) \neq \emptyset\}\)`
+
+.center[
+&lt;img src="eckertmontaguefields.png" height="450px" /&gt;
+]
+
+
+---
+# Flynn, public, prior
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Design choice: prior (discussion later); critical assumptions 
+
+- prior mostly (.7) on feminine personae (due to appearance)
+
+- correlations between properties based on general stereotypes
+
+---
+# Flynn, public, literal listener, -ing
+
+Literal listener: `\(L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}\)`
+
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variant &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Eckert.Field &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate} &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual} &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; delta.ing &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Flynn, public, literal listener, -ing
+
+Literal listener: `\(L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}\)`
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variant &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Eckert.Field &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate} &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual} &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; delta.ing &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; product.ing &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Flynn, public, literal listener, -ing
+
+Literal listener: `\(L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}\)`
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variant &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Eckert.Field &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate} &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual} &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; delta.ing &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; product.ing &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L0.ing &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1250 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1250 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0625 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3125 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0625 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3125 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Flynn, public, literal listener, -in'
+
+Literal listener: `\(L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}\)`
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variant &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Eckert.Field &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate} &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual} &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; delta.in &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; product.in &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L0.in &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1428571 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1428571 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1428571 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1428571 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0714286 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3571429 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Flynn, public, Speaker
+
+Speaker: `\(S_1(m \mid w) \propto \exp(\alpha \cdot U(w, m)))\)`
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L0.ing &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Util.ing &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L0.in &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Util.in &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1250 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.079442 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1428571 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.945910 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1250 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.079442 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1428571 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.945910 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0625 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.772589 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3125 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.163151 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1428571 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.945910 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1428571 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.945910 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0625 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.772589 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0714286 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.639057 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3125 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.163151 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3571429 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.029619 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Suppose Flynn wants to convey {competent, casual, masculine}  (1st row)
+
+- Utility of -in' `\((-1.946)\)` is higher than -ing `\((-2.079)\)`
+
+- Let `\(\alpha = 10\)`, the production probability of -in' is about `\(.79\)`
+
+---
+# Flynn, public, Speaker
+
+Speaker: `\(S_1(m \mid w) \propto \exp(\alpha \cdot U(w, m)))\)`
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L0.ing &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Util.ing &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L0.in &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Util.in &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; S1.in &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.125 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.079 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.143 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.946 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.792 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.125 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.079 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.143 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.946 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.792 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.062 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.773 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.312 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.163 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.143 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.946 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.143 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.946 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.062 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.773 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.071 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.639 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.792 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.312 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.163 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.357 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.030 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.792 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Note how the production probabilities are the same for the non-0/1 cases
+
+- This is because the relative informativity of -ing/-in' is the same as long as both are true
+
+- Good/bad prediction? (Discuss)
+
+---
+# Casey, public, prior
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.25 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Flynn, queer-friendly, prior
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.79 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+The desired persona {competent, casual, masculine} already has a high prior
+
+---
+# Flynn, queer friendly, literal listener, -ing
+
+Literal listener: `\(L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}\)`
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variant &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Eckert.Field &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate} &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual} &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; delta.ing &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; product.ing &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L0.ing &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.79 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.79 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8586957 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0108696 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0108696 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0543478 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0108696 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0543478 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Flynn, queer friendly, literal listener, -in'
+
+Literal listener: `\(L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}\)`
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variant &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Eckert.Field &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -ing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate} &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; -in &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual} &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; delta.in &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; product.in &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L0.in &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.79 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.79 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8586957 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0108696 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0543478 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0108696 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0108696 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0543478 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Flynn, queer friendly, Speaker
+
+Speaker: `\(S_1(m \mid w) \propto \exp(\alpha \cdot U(w, m)))\)`
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Persona &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L0.ing &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Util.ing &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; L0.in &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Util.in &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; S1.in &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.79 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.859 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.152 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.859 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.152 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.011 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -4.522 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.011 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -4.522 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.011 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -4.522 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {competent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.054 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.912 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.054 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.912 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, casual, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -Inf &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.011 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -4.522 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, masculine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.011 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -4.522 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.011 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -4.522 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; {incompetent, delicate, feminine} &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.054 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.912 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.054 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.912 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Prediction is actually driven by the fact that competent delicate personae and incompetent casual personae have 
+ the same total prior.
+
+- Good/bad prediction? (Discuss)
+
+---
+# General discussion
+
+- RSA/game-theoretic pragmatics is a powerful framework
+
+- It has a lot of potential in analyzing social meaning
+
+- But, specific models/analyses need to be carefully evaluated both conceptually and empirically
+
+  + Worlds?
+  
+  + Prior
+  
+  + `\([[\cdot]]\)`
+  
+---
+# Starting with literal speaker
+
+Literal listener: `\(L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}\)`
+
+- I think it is particularly problematic to treat indexation as denotation `\([[\cdot]]\)`
+
+- Proposal: for social meanings, start with a literal speaker
+
+  + `\(L_0(w \mid m) \propto \Pr(w) \cdot S_0(m \mid w)\)`
+  
+  + Difference between truth-conditional and indexical meanings: whether or not a sigmoid function is applied to S_0
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

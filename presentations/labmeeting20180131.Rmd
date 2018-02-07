@@ -1,0 +1,527 @@
+---
+title: "Social meaning in game-theoretic pragmatics II"
+#subtitle: "⚔<br/>with xaringan"
+author: "Ciyang Qing"
+date: "January 31, 2018"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+
+library(tidyverse)
+theme_set(theme_bw())
+library(forcats)
+library(scales)
+library(knitr)
+library(kableExtra)
+```
+
+class: center, middle, title-slide
+
+## Social meaning in game-theoretic pragmatics
+### (Burnett in press)
+
+
+<br />
+
+
+### Ciyang Qing
+
+
+```{r, out.height = "80px", echo=FALSE}
+knitr::include_graphics("SUSig_Stack.png")
+```
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+```{r, out.height = "80px", echo=FALSE}
+knitr::include_graphics("alps1.jpg")
+```
+
+### ALPS lab meeting (January 31, 2018)
+
+---
+# Previously...
+
+Vanilla RSA 
+
+- Literal listener: $L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}$
+
+- Speaker: $S_1(m \mid w) \propto \exp(\alpha \cdot U(m, w))$
+
+- Pragmatic listener: $L_2(w \mid m) \propto \Pr(w) \cdot S_1(m \mid w)$
+
+
+
+---
+# Social Meaning Games (SMGs)
+
+A **Social Meaning Game** is a tuple $\langle\{S,L\}, \langle\mathbb{P}, >\rangle, M, C, [\cdot], \mu, \Pr \rangle$
+
+- S, L: Players
+
+- $\langle\mathbb{P}, >\rangle$: Universe (a relational structure)
+
+  * $\mathbb{P}= \{p_1, \ldots, p_n\}$ is  a finite set of properties
+  
+  * $>$ is a irreflexive relation on $\mathbb{P}$ 
+  (an incompatibility relation)
+
+- $M$ is a finite set of messages
+
+- $C$ is a cost function of messages
+
+- $[\cdot]$ is the indexation relation
+
+- $\mu$ is a **value function**: a measure function on sets of properties 
+
+- $\Pr$ over sets of properties
+
+---
+# A working example: Obama
+
+$\mathbb{P}=\{\text{competent}, \text{incompetent}, \text{friendly}, \text{aloof}\}$
+- competent $>$ incompetent
+- friendly $>$ aloof
+
+A persona $w$ is a maximally consistent set of properties.
+
+```{r, echo=FALSE}
+personae.names <- c("stern leader", 
+              "cool guy", 
+              "asshole", 
+              "doofus")
+
+personae <- c("{competent, aloof}", 
+              "{competent, friendly}", 
+              "{incompetent, aloof}",
+              "{incompetent, friendly}"
+              )
+
+tb.prior <- data.frame(Persona = personae.names, w = personae, Pr = c(.3, .2, .3, .2))
+knitr::kable(t(tb.prior), format = 'html') %>%
+  row_spec(1, bold = TRUE, background = "skyblue") %>%
+  column_spec(1, bold = FALSE, background = "lightpink") 
+  
+```  
+Prior: at the barbecue, Obama worries aoubt seeming aloof.
+
+- Really just a belief, the worry part comes later
+
+---
+# Literal listener
+Literal listener: $L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}$
+
+
+- Eckert indexical fields for (ING)
+
+```{r, echo=FALSE}
+tb.eckert <- data.frame(Variant = c("-ing", "-in'"), 
+                        Eckert.Field = c("{competent, aloof}", "{incompetent, friendly}"))
+knitr::kable(tb.eckert, format = 'html')
+```
+
+Eckert indexical fields are interpreted disjunctively: Eckert-Montague fields
+
+$[[m]] = \{w \mid w \cap \text{EF}(m) \neq \emptyset\}$
+
+```{r, echo=FALSE}
+
+tb.prior.sems <- tb.prior %>% 
+  mutate(EM.ing = c(1, 1, 1, 0), EM.in = c(0, 1, 1, 1))
+knitr::kable(t(tb.prior.sems), format = 'html') %>%
+  row_spec(1, bold = TRUE, background = "skyblue") %>%
+  column_spec(1, bold = FALSE, background = "lightpink") 
+  
+```  
+
+---
+# Literal listener
+Literal listener: $L_0(w \mid m) \propto \Pr(w) \cdot \delta_{w \in [[m]]}$
+
+```{r, echo=FALSE}
+
+tb.L0<- tb.prior.sems %>% 
+  mutate(EM.ing = Pr * EM.ing / sum(Pr * EM.ing), EM.in = Pr * EM.in / sum(Pr * EM.in)) %>%
+  rename(L0.ing = EM.ing, L0.in = EM.in)
+
+knitr::kable(t(tb.L0), format = 'html') %>%
+  row_spec(1, bold = TRUE, background = "skyblue") %>%
+  column_spec(1, bold = FALSE, background = "lightpink") 
+  
+```  
+
+
+---
+# Speaker
+
+- RSA Speaker: $S_1(m \mid w) \propto \exp(\alpha \cdot U(m, w))$
+
+  * persona $w$ as given
+
+- Burnett (in press): $S_1( \langle w, m\rangle ) \propto \exp(\alpha \cdot U(\langle w, m\rangle))$
+
+  * motivation performative nature of identity construction 
+
+- Now, $U(\langle w, m\rangle)) = \ln(L_0(w\mid m)) - C(m) + \mu(w)$
+
+  * $\mu$ is the speaker's value function 
+  
+- Compared with Yoon, Tessler, Goodman & Frank's (2016) politeness model
+
+  * $U(w, m) = \beta_1 \ln(L_0(w\mid m)) + \beta_2 \mathbb{E}_{L_0(w\mid m)}[\mu(w)] - C(m)$  
+
+Critical difference: whether there is a fact of the matter about $w$
+
+---
+# Obama, BBQ
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+knitr::kable(tb.prior %>% mutate(Pr = c(0.5, 1, 0, 0)) %>% rename(Value = Pr) %>% arrange(desc(Value), Persona), 
+             format = 'html')
+```
+
+---
+# Obama, BBQ, speaker
+
+$U(\langle w, m\rangle)) = \ln(L_0(w\mid m)) - C(m) + \mu(w)$
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+SoftMaxChooseFirstAmongTwo <- function(u1, u2, par.alpha = 8){
+  v <- cbind(u1, u2) 
+  m <- exp(par.alpha * v)
+  return((m / rowSums(m))[,1])
+}
+
+tb.bbq <- tb.L0 %>%
+  mutate(Value = c(0.5, 1, 0, 0)) %>%
+  gather("m", "L0", L0.ing, L0.in) %>%
+  arrange(desc(Value), Persona) %>%
+  mutate(m = sub("L0[.]", "-", m)) 
+
+knitr::kable(tb.bbq, 
+             format = 'html') %>%
+  collapse_rows(columns = 1:2)
+```  
+
+---
+# Obama, BBQ, speaker
+
+$U(\langle w, m\rangle)) = \ln(L_0(w\mid m)) - C(m) + \mu(w)$
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+tb.bbq <- tb.bbq %>%
+  mutate(Util = log(L0) + Value) %>%
+  select(-Pr)
+
+knitr::kable(tb.bbq, 
+             format = 'html', digits = 3) %>%
+  collapse_rows(columns = 1:2)
+```  
+
+---
+# Obama, BBQ, speaker
+
+$S_1( \langle w, m\rangle ) \propto \exp(\alpha \cdot U(\langle w, m\rangle))$
+
+Assume $\alpha=8$
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+alpha <- 8
+tb.bbq <- tb.bbq %>%
+  mutate(S1 = exp(Util * alpha) / sum(exp(Util * alpha)) ) %>%
+  select(-L0)
+
+knitr::kable(tb.bbq, 
+             format = 'html', digits = 3) %>%
+  collapse_rows(columns = 1:2)
+```  
+
+---
+# Obama, Lawn, prior
+
+```{r, echo=FALSE}
+
+tb.prior.lawn <- data.frame(Persona = personae.names, w = personae, Pr = c(.2, .2, .3, .3))
+knitr::kable(t(tb.prior.lawn), format = 'html') %>%
+  row_spec(1, bold = TRUE, background = "skyblue") %>%
+  column_spec(1, bold = FALSE, background = "lightpink") 
+```  
+
+Obama worries about seeming incompetent in front of hostile journalists 
+
+```{r, echo=FALSE}
+tb.prior.sems.lawn <- tb.prior.lawn %>% 
+  mutate(EM.ing = c(1, 1, 1, 0), EM.in = c(0, 1, 1, 1))
+
+tb.L0.lawn <- tb.prior.sems.lawn %>% 
+  mutate(EM.ing = Pr * EM.ing / sum(Pr * EM.ing), EM.in = Pr * EM.in / sum(Pr * EM.in)) %>%
+  rename(L0.ing = EM.ing, L0.in = EM.in)
+
+tb.lawn <- tb.L0.lawn %>%
+  mutate(Value = c(0.5, 1, 0, 0)) %>%
+  gather("m", "L0", L0.ing, L0.in) %>%
+  arrange(desc(Value), Persona) %>%
+  mutate(m = sub("L0[.]", "-", m)) %>%
+  mutate(Util = log(L0) + Value) %>%
+  select(-Pr) %>%
+  mutate(S1 = exp(Util * alpha) / sum(exp(Util * alpha)) ) %>%
+  select(-L0)
+
+knitr::kable(tb.lawn, 
+             format = 'html', digits = 3) %>%
+  collapse_rows(columns = 1:2)
+```
+
+---
+# Obama, DNC, different value function
+
+Same prior as at lawn
+
+Obama worries about seeming incompetent in front of hostile journalists 
+
+```{r, echo=FALSE}
+tb.dnc <- tb.L0.lawn %>%
+  mutate(Value = c(1, .5, 0, 0)) %>%
+  gather("m", "L0", L0.ing, L0.in) %>%
+  arrange(desc(Value), Persona) %>%
+  mutate(m = sub("L0[.]", "-", m)) %>%
+  mutate(Util = log(L0) + Value) %>%
+  select(-Pr) %>%
+  mutate(S1 = exp(Util * alpha) / sum(exp(Util * alpha)) ) %>%
+  select(-L0)
+
+knitr::kable(tb.dnc, 
+             format = 'html', digits = 3) %>%
+  collapse_rows(columns = 1:2)
+```
+
+---
+# Social stratification as variation in values
+
+Analyzing Labov (1966)
+
+
+```{r, echo=FALSE}
+tb.labov.prior <- data.frame(Persona = personae.names, w = personae, Pr = c(.25, .25, .25, .25), 
+                       mu.upperM = c(1, 1, 0, 0),
+                       mu.lowerM = c(0, 0, 0, 0),
+                       mu.working = c(0, 1, 0, 1))
+
+knitr::kable(tb.labov.prior, format = 'html') %>%
+#  row_spec(1, bold = TRUE, background = "skyblue") %>%
+  column_spec(1, bold = TRUE, background = "lightpink") 
+  
+```  
+---
+# Social stratification as variation in values
+
+Analyzing Labov (1966)
+```{r, echo=FALSE}
+tb.labov.L0 <- tb.labov.prior %>% 
+  mutate(EM.ing = c(1, 1, 1, 0), EM.in = c(0, 1, 1, 1)) %>% 
+  mutate(EM.ing = Pr * EM.ing / sum(Pr * EM.ing), EM.in = Pr * EM.in / sum(Pr * EM.in)) %>%
+  rename(L0.ing = EM.ing, L0.in = EM.in)
+
+knitr::kable(tb.labov.L0, format = 'html', digits = 2) %>%
+#  row_spec(1, bold = TRUE, background = "skyblue") %>%
+  column_spec(1, bold = TRUE, background = "lightpink") 
+  
+```
+
+---
+# Social stratification as variation in values
+
+```{r, echo=FALSE}
+tb.labov.S <- tb.labov.L0 %>% 
+  gather("m", "L0", L0.ing, L0.in) %>%
+  arrange(w, Persona) %>%
+  mutate(m = sub("L0[.]", "-", m)) %>%
+  select(-Pr) %>%
+  mutate(Util.uM = log(L0) + mu.upperM, Util.lM = log(L0) + mu.lowerM, Util.wc = log(L0) + mu.working) %>%
+  mutate(S1.upperM = exp(Util.uM * alpha) / sum(exp(Util.uM * alpha)),
+         S1.lowerM = exp(Util.lM * alpha) / sum(exp(Util.lM * alpha)),
+         S1.working = exp(Util.wc * alpha) / sum(exp(Util.wc * alpha))) %>%
+  select(Persona, w, m, S1.upperM, S1.lowerM, S1.working)
+
+knitr::kable(tb.labov.S, format = 'html', digits = 2) %>%
+#  row_spec(1, bold = TRUE, background = "skyblue") %>%
+  column_spec(1, bold = TRUE, background = "lightpink") %>%
+  collapse_rows(columns = 1:2)
+  
+```  
+
+---
+# Pragmatic listener
+
+- Vanilla RSA: $L_2(w \mid m) \propto \Pr(w) \cdot S_1(m \mid w)$
+
+The reason why Bayes' rule applies is that we can decompose the joint probability distribution for $w$ and $m$
+ in two ways:
+ 
+- $P(w, m) = \Pr(m) \cdot L_2(w \mid m) = \Pr(w) \cdot S_1(m \mid w)$
+
+However, in SMGs the joint probability distribution for $w$ and $m$ is directly specified by $S_1$ (for a given $\mu$).
+
+- In principle, it seems that the pragmatic listener could just do a simple conditioning upon hearing a message $m$, i.e., 
+  $L_2$ simulates $S_1$ sampling world-message pairs and only keeps those that have the actual message $m$
+
+ 
+ 
+---
+# Pragmatic listener
+
+Burnett's (in press) "Bayesian-style inference" rule $L_2(w \mid m) \propto \Pr(w) \cdot S_1(m, w)$
+
+- $L_2$ independently samples $w$ and simulates $S_1$ sampling world-message pairs, and keep those pairs that match $L_2$'s private 
+ sample and the actual message
+
+
+- $L_2(w \mid m) \propto \Pr(w) \cdot S_1(\langle m, w\rangle \mid w)$
+
+Hidden independence assumption: $S_1(\langle m, w\rangle \mid w) \equiv S_1(\langle m, w\rangle)$, i.e., $L_2$ believes that 
+ $S_1$'s behavior is indepedent of what $L_2$ thinks about $S_1$
+
+(Discussion)
+
+
+---
+# Analyzing Podesva et al. (2015)
+
+Politicians want to be seen as stern leaders:
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+knitr::kable(tb.prior %>% mutate(Pr = c(1, 0, 0, 0)) %>% rename(Value = Pr) %>% arrange(desc(Value), Persona), 
+             format = 'html')
+```
+
+Note that for convenience, I keep using (in)competent rather than (in)articulate and -ing/-in' variants rather than flapped/released /t/.
+The current presentation is isomorphic to the one in the original paper.
+
+---
+# Rice
+
+```{r, echo=FALSE}
+tb.rice.prior <- data.frame(Persona = personae.names, w = personae, Pr = c(.25, .25, .25, .25), 
+                       Value = c(1, 0, 0, 0))
+
+knitr::kable(t(tb.rice.prior %>% select(-Value)), format = 'html') %>%
+  row_spec(1, bold = TRUE, background = "skyblue") %>%
+  column_spec(1, bold = TRUE, background = "lightpink") 
+
+alpha <- 4
+
+tb.rice.S <- tb.rice.prior %>% 
+  mutate(EM.ing = c(1, 1, 1, 0), EM.in = c(0, 1, 1, 1)) %>% 
+  mutate(EM.ing = Pr * EM.ing / sum(Pr * EM.ing), EM.in = Pr * EM.in / sum(Pr * EM.in)) %>%
+  rename(L0.ing = EM.ing, L0.in = EM.in) %>%
+  gather("m", "L0", L0.ing, L0.in) %>%
+  arrange(w, Persona) %>%
+  mutate(m = sub("L0[.]", "-", m)) %>%
+  mutate(Util= log(L0) + Value) %>%
+  mutate(S1 = exp(Util * alpha) / sum(exp(Util * alpha))) %>%
+  group_by(m) %>%
+  mutate(L2 = Pr * S1 / sum(Pr * S1))  %>%
+  ungroup() %>%
+  select(Persona, w, m, S1, L2)
+
+
+knitr::kable(tb.rice.S, format = 'html', digits = 3) %>%
+#  row_spec(1, bold = TRUE, background = "skyblue") %>%
+  column_spec(1, bold = TRUE, background = "lightpink") %>%
+  collapse_rows(columns = 1:2)
+  
+```  
+
+---
+# Pelosi
+
+```{r, echo=FALSE}
+tb.pelosi.prior <- data.frame(Persona = personae.names, w = personae, Pr = c(.05, .05, .45, .45), 
+                       Value = c(1, 0, 0, 0))
+
+knitr::kable(t(tb.pelosi.prior %>% select(-Value)), format = 'html') %>%
+  row_spec(1, bold = TRUE, background = "skyblue") %>%
+  column_spec(1, bold = TRUE, background = "lightpink") 
+
+alpha <- 4
+
+tb.pelosi.S <- tb.pelosi.prior %>% 
+  mutate(EM.ing = c(1, 1, 1, 0), EM.in = c(0, 1, 1, 1)) %>% 
+  mutate(EM.ing = Pr * EM.ing / sum(Pr * EM.ing), EM.in = Pr * EM.in / sum(Pr * EM.in)) %>%
+  rename(L0.ing = EM.ing, L0.in = EM.in) %>%
+  gather("m", "L0", L0.ing, L0.in) %>%
+  arrange(w, Persona) %>%
+  mutate(m = sub("L0[.]", "-", m)) %>%
+  mutate(Util= log(L0) + Value) %>%
+  mutate(S1 = exp(Util * alpha) / sum(exp(Util * alpha))) %>%
+  group_by(m) %>%
+  mutate(L2 = Pr * S1 / sum(Pr * S1))  %>%
+  ungroup() %>%
+  select(Persona, w, m, S1, L2)
+
+
+knitr::kable(tb.pelosi.S, format = 'html', digits = 3) %>%
+#  row_spec(1, bold = TRUE, background = "skyblue") %>%
+  column_spec(1, bold = TRUE, background = "lightpink") %>%
+  collapse_rows(columns = 1:2)
+  
+```  
+
+---
+# Pelosi
+
+Problems with the production model:
+
+- The $\langle \text{asshole}, \text{-ing} \rangle$ is much more likely chosen than $\langle \text{stern leader}, \text{-ing} \rangle$
+
+- Technically, this is because the informativity of the message outweighs the value function
+
+- Conceptually it seems very odd that Pelosi would choose the asshole persona with -ing because it does a better job
+ conveying it than the stern leader persona (discuss).
+
+
+Also, it seems wrong that the original paper's result would break the symmetry after hearing -in'
+
+---
+# Bush
+
+```{r, echo=FALSE}
+tb.bush.prior <- data.frame(Persona = personae.names, w = personae, Pr = c(.01, .01, .97, .01), 
+                       Value = c(1, 0, 0, 0))
+
+knitr::kable(t(tb.bush.prior %>% select(-Value)), format = 'html') %>%
+  row_spec(1, bold = TRUE, background = "skyblue") %>%
+  column_spec(1, bold = TRUE, background = "lightpink") 
+
+alpha <- 4
+
+tb.bush.S <- tb.bush.prior %>% 
+  mutate(EM.ing = c(1, 1, 1, 0), EM.in = c(0, 1, 1, 1)) %>% 
+  mutate(EM.ing = Pr * EM.ing / sum(Pr * EM.ing), EM.in = Pr * EM.in / sum(Pr * EM.in)) %>%
+  rename(L0.ing = EM.ing, L0.in = EM.in) %>%
+  gather("m", "L0", L0.ing, L0.in) %>%
+  arrange(w, Persona) %>%
+  mutate(m = sub("L0[.]", "-", m)) %>%
+  mutate(Util= log(L0) + Value) %>%
+  mutate(S1 = exp(Util * alpha) / sum(exp(Util * alpha))) %>%
+  group_by(m) %>%
+  mutate(L2 = Pr * S1 / sum(Pr * S1))  %>%
+  ungroup() %>%
+  select(Persona, w, m, S1, L2)
+
+
+knitr::kable(tb.bush.S, format = 'html', digits = 3) %>%
+#  row_spec(1, bold = TRUE, background = "skyblue") %>%
+  column_spec(1, bold = TRUE, background = "lightpink") %>%
+  collapse_rows(columns = 1:2)
+  
+```  
